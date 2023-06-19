@@ -6,12 +6,15 @@
 }
 
 body{
+    background: black;
     display: grid;
     place-items: center;
     height: 100vh;
 }
 
 #container{
+    margin-bottom: auto;
+    background-color: white;
     height: 400px;
     width: 1200px;
     position: relative;
@@ -25,7 +28,7 @@ body{
     bottom: 28px;
     left:20px;
 }
-
+  
 #container #dino img{
     background-color: white;
     height: 70px;
@@ -131,7 +134,8 @@ body{
     width:auto;
     position:absolute;
     top:20px;
-    right: 0;
+    font-size:20px;
+    right: 20px;
 }
 
 #gameover
@@ -139,7 +143,7 @@ body{
     display: none;
     position: absolute;
     font-size:70px;
-    top:100px;
+    top:150px;
     left: calc(50% - 181px);
     top: calc(50%-40px);
     width:362px;
