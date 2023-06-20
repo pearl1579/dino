@@ -17,15 +17,25 @@ let i=0;
 window.addEventListener("keydown", (event) => {
     switch (event.code) {
         case "Space":
-            gameover.style.display = "none";
-            block.classList.add("blockAnimate");
-            road.firstElementChild.style.animation = "roadAnimate 1.5s linear infinite";
-            cloud.firstElementChild.style.animation = "cloudAnimate 30s linear infinite";
-            if (i == 0){
-                interval = setInterval(scorecounter, 200);
-                i = 1;
+            if(interval==null) {
+                gameover.style.display = "none";
+                block.classList.add("blockAnimate");
+                road.firstElementChild.style.animation = "roadAnimate 1.5s linear infinite";
+                cloud.firstElementChild.style.animation = "cloudAnimate 30s linear infinite";
+                if (i == 0){
+                    interval = setInterval(scorecounter, 200);
+                    i = 1;
+                }
             }
-            break;
+            else {
+                if (dino.classList != "dinoActive") {
+                    dino.classList.add("dinoActive");
+                    setTimeout(() => {
+                        dino.classList.remove("dinoActive");
+                    }, 500);
+                }
+                break;
+            }
  
         case "ArrowUp":
             if (dino.classList != "dinoActive") {
@@ -48,6 +58,7 @@ let result = setInterval(()=>{
         alert("Game Over");
         i=0;
         clearInterval(interval);
+        interval=null;
         gameover.style.display = "block";
         block.classList.remove("blockAnimate");
         road.firstElementChild.style.animation = "none";
